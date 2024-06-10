@@ -24,6 +24,7 @@ public class User extends AuditableAbstractAggregateRoot<User> {
     @Size(max = 120)
     private String password;
 
+    @Getter
     @ManyToMany
     @JoinTable(name = "user_roles",
     joinColumns = @JoinColumn(name = "user_id"),
