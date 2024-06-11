@@ -14,6 +14,7 @@ public class Role {
     private Long id;
 
     @Getter
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true, length = 20)
     private Roles name;
 

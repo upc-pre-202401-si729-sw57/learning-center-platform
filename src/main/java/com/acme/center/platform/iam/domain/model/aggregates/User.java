@@ -25,7 +25,7 @@ public class User extends AuditableAbstractAggregateRoot<User> {
     private String password;
 
     @Getter
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -41,6 +41,7 @@ public class User extends AuditableAbstractAggregateRoot<User> {
 
     public User(String username, String password, List<Role> roles) {
         this(username, password);
+        addRoles(roles);
     }
 
     public User addRole(Role role) {
