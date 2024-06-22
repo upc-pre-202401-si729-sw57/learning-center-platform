@@ -12,7 +12,7 @@ public class SignUpCommandFromResourceAssembler {
                 ? resource.roles().stream().map(name -> Role.toRoleFromName(name)).toList()
                 : new ArrayList<Role>();
         System.out.print("Roles:");
-        System.out.println(roles.getFirst().getName().name());
+        System.out.println(roles.size()>0 ? roles.getFirst().getName().name() : "No roles");
         return new SignUpCommand(resource.username(), resource.password(), roles);
     }
 }
